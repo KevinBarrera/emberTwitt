@@ -11,13 +11,12 @@ export default class TwitterBoxComponent extends Component {
 	}
 
 	@action 
-	handleSubmit() {
-		let newText = this.text;
-		if (this.args.onSubmit){
-			this.args.onSubmit(newText);
-		} else {
-			alert('handleSubmit');
-		}
-		
+	async handleSubmit() {
+		let text = this.text;
+
+		let req = await this.args.handleSubmit(text); //cuando se va a hacer una petición afuera al ser POST va a ser una promesa
+		this.error = req.error;
+		//Dejar el texto vacio para otros twitts
+		this.text = '';
 	}
 }

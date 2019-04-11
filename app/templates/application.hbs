@@ -1,8 +1,9 @@
 <h1>Twitter</h1>
 
-<h2>Input box componenent</h2>
-<TwitterBox />
+<TwitterBox
+    @handleSubmit={{this.onSubmit}}
+></TwitterBox>
 
-
-<h2>Feed component</h2>
-<Feed1 @tweets = {{tweets}}/>
+<Feed 
+    @tweets = {{this.model}}
+/>
